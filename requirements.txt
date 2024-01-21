@@ -7,6 +7,7 @@ alembic==1.13.1
 pydantic[email]
 bcrypt==4.0.1
 passlib[bcrypt]
+python-jose==3.3.0
 pytest==7.4.4
 httpx==0.26.0
 pre-commit==3.6.0
