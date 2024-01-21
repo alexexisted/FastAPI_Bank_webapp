@@ -5,6 +5,7 @@ python-dotenv==1.0.0
 SQLAlchemy==2.0.25
 alembic==1.13.1
 pydantic[email]
+bcrypt==4.0.1
 passlib[bcrypt]
 pytest==7.4.4
 httpx==0.26.0
