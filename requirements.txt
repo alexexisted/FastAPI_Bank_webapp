@@ -4,9 +4,8 @@ psycopg2-binary==2.9.9
 python-dotenv==1.0.0
 SQLAlchemy==2.0.25
 alembic==1.13.1
-pydantic[email]
-bcrypt==4.0.1
-passlib[bcrypt]
+pydantic[email]~=2.5.3
+passlib[bcrypt]==1.7.4
 python-jose==3.3.0
 pytest==7.4.4
 httpx==0.26.0
