@@ -22,7 +22,7 @@ class Settings:
 
     SECRET_KEY: str = os.getenv("SECRET_KEY")
     ALGORITHM = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES = 30
+    ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 settings = Settings()
 
