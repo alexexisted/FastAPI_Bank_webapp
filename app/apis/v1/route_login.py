@@ -26,9 +26,7 @@ def login_for_access_token(response: Response, form_data: OAuth2PasswordRequestF
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@router.get('/protected', response_model=ShowUser)
-async def info_user(request: Request, user: User = Depends(get_current_user)):
-    access_token = request.cookies.get("access_token") #catch the token from cookie
-    if not access_token:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-    return user
+@router.get('/logout')
+async def logout(response: Response):
+    response.delete_cookie(key="access_token")
+    return {"status": "successfully logged out"}
