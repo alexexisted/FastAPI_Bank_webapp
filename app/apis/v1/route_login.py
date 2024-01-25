@@ -16,7 +16,7 @@ from schemas.user import ShowUser
 router = APIRouter()
 
 
-@router.post("/login", response_model=Token)
+@router.post("/login_docs", response_model=Token)
 def login_for_access_token(response: Response, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = authenticate_user(form_data.username, form_data.password, db) #check if user exists
     if not user:
@@ -26,7 +26,7 @@ def login_for_access_token(response: Response, form_data: OAuth2PasswordRequestF
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@router.get('/logout')
-async def logout(response: Response):
+@router.get('/logout_docs')
+async def logout_docs(response: Response):
     response.delete_cookie(key="access_token")
     return {"status": "successfully logged out"}
