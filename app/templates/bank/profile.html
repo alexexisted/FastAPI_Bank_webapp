@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+   <div class="text-center display-4" >
+       <div class="col-3"></div>
+            <p class="bg-info">Hello, {{user.name}} {{user.surname}}!</p>
+            <div class="container" style="background-color: #26212644; width: 500px; box-shadow: 0 4px 8px 0 rgba(3, 87, 255, 0.51), 0 6px 20px 0 rgba(3, 87, 255, 0.51);">
+                <h2 class="display 5" style="margin-top: 70px ">Balance: {{user.balance}}</h2>
+                <h2 class="display 7">Email: {{user.email}}</h2>
+                <h2 class="display 7">Name: {{user.name}}</h2>
+                <h2 class="display 7">Surname: {{user.surname}}</h2>
+                <h2 class="display 7">ID: {{user.id}}</h2>
+            </div>
+   </div>
+</div>
+
+{% endblock %}
