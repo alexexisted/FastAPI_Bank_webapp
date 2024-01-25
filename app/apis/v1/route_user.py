@@ -14,13 +14,13 @@ There are all routers connected to operations with users
 """
 
 
-@router.post("/register", response_model=ShowUser, status_code=status.HTTP_201_CREATED)
+@router.post("/register_docs", response_model=ShowUser, status_code=status.HTTP_201_CREATED)
 async def create_user(user: UserCreate, db: Session = Depends(get_db)):
     user = create_new_user(user=user, db=db)
     return user
 
 
-@router.get('/profile', response_model=ShowUser)
+@router.get('/profile_docs', response_model=ShowUser)
 async def profile_info(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     access_token = request.cookies.get("access_token")
     if not access_token:
