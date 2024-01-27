@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center display-4">Withdraw
+        <div class="col-3"></div>
+            <p class="bg-info">Hello, {{user.name}} {{user.surname}}!</p>
+            <div class="container" style="background-color: #26212644; width: 500px; box-shadow: 0 4px 8px 0 rgba(3, 87, 255, 0.51), 0 6px 20px 0 rgba(3, 87, 255, 0.51);">
+                <h2 class="display 5" style="margin-top: 70px ">Balance: {{user.balance}}</h2>
+                <form method="POST">
+                    <label>Amount of Withdraw</label>
+                    <input type="number" required  class="form-control mb-2" name="amount" value="{{amount}}" placeholder="Enter amount of withdraw">
+                    <button type="submit" class="btn btn-success">Withdraw</button>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}
