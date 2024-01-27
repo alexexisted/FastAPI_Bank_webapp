@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% for error in errors %}
+<div class="alert alert-danger">
+    <p>{{error}}</p>
+</div>
+{% endfor %}
+
+<div class="container">
+    <h1 class="diaplay-3">Dear Unknown User, please <a href="/login">login</a></h1>
+</div>
+
+{% endblock %}
