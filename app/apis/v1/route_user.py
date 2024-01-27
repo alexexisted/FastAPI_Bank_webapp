@@ -21,7 +21,7 @@ async def create_user(user: UserCreate, db: Session = Depends(get_db)):
 
 
 @router.get('/profile_docs', response_model=ShowUser)
-async def profile_info(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+async def profile_info(request: Request, user: User = Depends(get_current_user)):
     access_token = request.cookies.get("access_token")
     if not access_token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)

@@ -9,7 +9,7 @@ and this functions are used in route_account.py
 """
 
 
-def deposit(id: int, amount: int, db: Session):
+def deposit_db(id: int, amount: int, db: Session):
     user = db.query(User).filter(User.id == id).first()
     try:
         if amount > 0:
@@ -22,7 +22,7 @@ def deposit(id: int, amount: int, db: Session):
     return {"message": "Amount is less than zero"}
 
 
-def withdraw(id: int, amount: int, db: Session):
+def withdraw_db(id: int, amount: int, db: Session):
     user = db.query(User).filter(User.id == id).first()
     try:
         if amount > 0 and user.balance >= amount:

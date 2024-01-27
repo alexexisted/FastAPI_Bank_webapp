@@ -5,7 +5,7 @@ from db.models.user import User
 from schemas.user import UserCreate, ShowUser
 from db.session import get_db
 from db.repository.user import show_info
-from db.repository.account import deposit, withdraw
+from db.repository.account import deposit_db, withdraw_db
 from db.repository.login import get_current_user
 
 router = APIRouter()
@@ -14,7 +14,7 @@ here i made all routes which connected to account operations
 """
 
 
-@router.post("/withdraw", response_model=ShowUser)
+@router.post("/withdraw_docs", response_model=ShowUser)
 async def withdraw_money(request: Request,
                          amount: int,
                          user: User = Depends(get_current_user),
@@ -22,11 +22,11 @@ async def withdraw_money(request: Request,
     access_token = request.cookies.get("access_token")
     if not access_token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-    user = withdraw(id=user.id, amount=amount, db=db)
+    user = withdraw_db(id=user.id, amount=amount, db=db)
     return user
 
 
-@router.post('/deposit', response_model=ShowUser)
+@router.post('/deposit_docs', response_model=ShowUser)
 async def deposit_money(request: Request,
                         amount: int,
                         user: User = Depends(get_current_user),
@@ -34,5 +34,5 @@ async def deposit_money(request: Request,
     access_token = request.cookies.get("access_token")
     if not access_token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-    user = deposit(id=user.id, amount=amount, db=db)
+    user = deposit_db(id=user.id, amount=amount, db=db)
     return user
