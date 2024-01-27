@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import os
+import uvicorn
 
 from core.config import settings
 from db.base import Base
@@ -39,3 +40,7 @@ app = start_application()
 @app.get("/")
 def hello_api():
     return {"message": "We are not going to scam you"}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
