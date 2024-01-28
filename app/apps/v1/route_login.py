@@ -1,16 +1,13 @@
 import json
-from fastapi import Depends, APIRouter, HTTPException, status, Response, Request, Form, responses
-from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+from fastapi import Depends, APIRouter, status, Response, Request, Form, responses
 from sqlalchemy.orm import Session
 
 from db.session import get_db
 
-from db.repository.login import get_user, authenticate_user, get_token, get_current_user
+from db.repository.login import authenticate_user
 from core.security import create_access_token
 from db.repository.user import create_new_user
-from schemas.token import Token
-from db.models.user import User
-from schemas.user import ShowUser, UserCreate
+from schemas.user import UserCreate
 
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
